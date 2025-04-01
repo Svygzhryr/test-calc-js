@@ -57,6 +57,26 @@ export interface DropdownProps<T> {
   data: T[] | null;
 }
 
+export interface OutputProps {
+  result: Result | null;
+}
+
+export interface InputProps {
+  data: Data | null;
+  config: Config | null;
+  plate: Plate | null;
+  setPlate: React.Dispatch<React.SetStateAction<Plate | null>>;
+  pipe: Pipe | null;
+  setPipe: React.Dispatch<React.SetStateAction<Pipe | null>>;
+  frameLength: number;
+  setFrameLength: React.Dispatch<React.SetStateAction<number>>;
+  frameWidth: number;
+  setFrameWidth: React.Dispatch<React.SetStateAction<number>>;
+  durability: Durability | null;
+  setDurability: React.Dispatch<React.SetStateAction<Durability | null>>;
+  setResult: React.Dispatch<React.SetStateAction<Result | null>>;
+}
+
 export interface DimensionConfig extends ConfigItem {
   name: "Ширина" | "Длина";
 }
@@ -66,11 +86,12 @@ export type ResultNames = Record<string, string>;
 export interface Result {
   names: ResultNames;
   totalArea: number;
-  cellSize: number;
+  cellSize: string;
   plateAmount: number;
   totalPlateCost: number;
   pipeAmount: number;
   totalPipeCost: number;
   fixAmount: number;
   totalFixCost: number;
+  totalCost: number;
 }
