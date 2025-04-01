@@ -1,6 +1,6 @@
-import { Data } from "../types";
+import { Config, Data } from "../types";
 
-const getData = async (url: string): Promise<Data | null> => {
+const getData = async (url: string): Promise<Data | Config | null> => {
   try {
     const result = await fetch(url);
     return result.json();

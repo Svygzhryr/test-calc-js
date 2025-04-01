@@ -5,14 +5,19 @@ const CustomInput: FC<CustomInputProps> = ({
   value,
   setValue,
   placeholder,
+  config,
 }) => {
   const handleOnChange = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    setValue(target.value);
+    setValue(+target.value);
   };
 
   return (
     <input
+      type="number"
+      step={config?.step ?? 0.2}
+      min={config?.min ?? 0}
+      max={config?.max ?? 10000}
       value={value}
       onChange={handleOnChange}
       placeholder={placeholder}

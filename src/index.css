@@ -37,6 +37,14 @@ h2 {
   font-size: 32px;
 }
 
+strong {
+  color: theme("colors.main.100");
+}
+
+sup {
+  font-size: 14px;
+}
+
 body {
   background-color: theme("colors.main.900");
 }

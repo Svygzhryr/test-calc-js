@@ -31,18 +31,46 @@ export interface Durability {
   step: number;
 }
 
-export type Part = Plate | Pipe | Fix;
-export type Data = Part[];
-
-export interface CustomInputProps {
-  value: string;
-  setValue: Dispatch<React.SetStateAction<string>>;
-  placeholder: string;
+export interface ConfigItem {
+  type: string;
+  key: string;
+  name: string;
+  min: number;
+  max: number;
+  step: number;
 }
 
-export interface DropdownProps {
-  value: Part | null;
-  setValue: Dispatch<React.SetStateAction<Part | null>>;
+export type Part = Plate | Pipe | Fix;
+export type Data = Part[];
+export type Config = (ConfigItem | Durability)[];
+
+export interface CustomInputProps {
+  value: number;
+  setValue: Dispatch<React.SetStateAction<number>>;
   placeholder: string;
-  data: Plate[] | null;
+  config: ConfigItem | undefined;
+}
+export interface DropdownProps<T> {
+  value: T | null;
+  setValue: Dispatch<React.SetStateAction<T | null>>;
+  placeholder: string;
+  data: T[] | null;
+}
+
+export interface DimensionConfig extends ConfigItem {
+  name: "Ширина" | "Длина";
+}
+
+export type ResultNames = Record<string, string>;
+
+export interface Result {
+  names: ResultNames;
+  totalArea: number;
+  cellSize: number;
+  plateAmount: number;
+  totalPlateCost: number;
+  pipeAmount: number;
+  totalPipeCost: number;
+  fixAmount: number;
+  totalFixCost: number;
 }
