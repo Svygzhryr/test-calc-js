@@ -33,6 +33,10 @@ button {
   color: theme("colors.main.text");
 }
 
+h2 {
+  font-size: 32px;
+}
+
 body {
   background-color: theme("colors.main.900");
 }
